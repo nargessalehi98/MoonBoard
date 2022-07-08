@@ -1,2 +1,2 @@
 # MoonBoard
-Path generator for MoonBoard climbing wall
+Route generator for MoonBoard climbing wall
