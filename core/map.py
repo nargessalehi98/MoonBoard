@@ -1,5 +1,9 @@
+import random
+
+
 class Map:
     def __init__(self):
+        self.letters = 'ABCDEFGHIJK'
         self.map = {'1A': 3.4, '1B': 4.4, '1C': 8.1, '1D': 5.0, '1E': 7.8, '1F': 4.1, '1G': 6.9, '1H': 6.3, '1I': 6.6,
                     '1J': 6.6, '1K': 2.5,
                     '2A': 5.6, '2B': 3.8, '2C': 9.4, '2D': 2.8, '2E': 7.8, '2F': 3.8, '2G': 7.2, '2H': 5.3, '2I': 5.9,
@@ -40,3 +44,17 @@ class Map:
 
     def get_score(self, hold):
         return self.map[hold]
+
+    def set_start(self, size):
+        start = []
+        for i in range(0, size):
+            num = random.randint(1, 6)
+            letter = random.choice(self.letters)
+            start.append(f'{num}{letter}')
+        return start
+
+    def set_top(self):
+        top = []
+        letter = random.choice(self.letters)
+        top.append(f'18{letter}')
+        return top
