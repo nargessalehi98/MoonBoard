@@ -100,9 +100,7 @@ class Generator:
         end_color = '\033[0m'
         result = 'A B C D E F G H I J K'
         body = self.get_body()
-        print(self.start)
-        print(self.top)
-        print(self.body)
+        print(self.start + self.body + self.top)
         print(result)
         for row in range(18, 0, -1):
             one_row = ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
