@@ -4,7 +4,7 @@ from core.map import Map
 
 
 class Calculator:
-    def __init__(self, path, start):
+    def __init__(self, start, path):
         self.map = Map()
         self.path = path
         self.start = start
@@ -19,8 +19,14 @@ class Calculator:
         start_len = len(self.start)
         start = self.start
 
-        for hold in self.start:
-            score += self.map.get_score(hold)
+        if start_len == 1:
+            score += 2 * (self.map.get_score(self.start[0]))
+            # score += math.pow(self.map.get_score(self.start[0]), 2)
+        elif start_len == 2:
+            score += (self.map.get_score(self.start[0])) + (self.map.get_score(self.start[1]))
+
+        # for hold in self.start:
+        #     score += self.map.get_score(hold)
 
         for i in range(0, len(self.path)):
             if start_len == 2 and i == 0:
@@ -42,5 +48,4 @@ class Calculator:
                     score += (self.map.get_score(self.path[i])) * (self.cal_distance(self.path[i - 2], self.path[i]))
                 else:
                     score += (self.map.get_score(self.path[i])) * (self.cal_distance(self.path[i - 1], self.path[i]))
-
-        return score / (len(self.path) + len(self.start))
+        return score / (len(self.path))
