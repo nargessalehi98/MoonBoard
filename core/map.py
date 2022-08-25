@@ -58,3 +58,33 @@ class Map:
         letter = random.choice(self.letters)
         top.append(f'18{letter}')
         return top
+
+    def alphabet_to_number(self, hold) -> (int):
+        if hold.endswith('A'):
+            return 0
+        if hold.endswith('B'):
+            return 1
+        if hold.endswith('C'):
+            return 2
+        if hold.endswith('D'):
+            return 3
+        if hold.endswith('E'):
+            return 4
+        if hold.endswith('F'):
+            return 5
+        if hold.endswith('G'):
+            return 6
+        if hold.endswith('H'):
+            return 7
+        if hold.endswith('I'):
+            return 8
+        if hold.endswith('J'):
+            return 9
+        if hold.endswith('K'):
+            return 10
+
+    def get_row_of_hold(self, hold):
+        if len(hold) == 3:
+            return int(hold[0] + hold[1])
+        if len(hold) == 2:
+            return int(hold[0])
