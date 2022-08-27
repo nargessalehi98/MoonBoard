@@ -11,7 +11,7 @@ class Generator:
         self.map = Map()
 
     def _length_(self):
-        self.length = random.randint(3, 11)
+        self.length = random.randint(3, 10)
 
     def _start_(self):
         size = random.randint(1, 2)
@@ -93,6 +93,14 @@ class Generator:
         self._body_()
         return self.body
 
+    def get_start(self):
+        self._start_()
+        return self.start
+
+    def get_top(self):
+        self._top_()
+        return self.top
+
     def draw_board(self):
         start_color = '\033[92m'
         finish_color = '\033[91m'
@@ -100,8 +108,8 @@ class Generator:
         end_color = '\033[0m'
         result = 'A B C D E F G H I J K'
         body = self.get_body()
-        print(self.start + self.body + self.top)
-        print(result)
+        # print(self.start + self.body + self.top)
+        # print(result)
         for row in range(18, 0, -1):
             one_row = ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
             for hold in self.start:
@@ -117,6 +125,5 @@ class Generator:
             print(*one_row, end="")
             print(" " + str(row))
 
-
-g = Generator()
-g.draw_board()
+# g = Generator()
+# g.draw_board()
