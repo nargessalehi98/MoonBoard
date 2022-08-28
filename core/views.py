@@ -7,7 +7,8 @@ from rest_framework.status import HTTP_200_OK
 
 class Route(APIView):
 
-    def get(self, request):
+    @staticmethod
+    def get(request):
         generator = Generator()
         start = generator.get_start()
         body = generator.get_body()
@@ -21,14 +22,3 @@ class Route(APIView):
             "top": top
         }
         return Response(data=output, status=HTTP_200_OK)
-
-
-if __name__ == '__main__':
-    generator = Generator()
-    result = Result()
-    start = generator.get_start()
-    body = generator.get_body()
-    generator.draw_board()
-    top = generator.get_top()
-    generator.draw_board()
-    print(result.get_final_result(start, body + top))
