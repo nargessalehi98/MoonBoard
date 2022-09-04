@@ -1,0 +1,19 @@
+<div class="container">
+<div class="wrapper">
+  <div class="item"></div>
+  <div class="item" *ngFor="let letter of letters">
+    <span>{{letter}}</span>
+  </div>
+</div>
+
+<div class="wrapper" *ngFor="let row of rows">
+  <div class="item">
+    <span>{{row.rowNum}}</span>
+  </div>
+  <div class="item" [attr.id]="'item-'+row.rowNum+''+letters[j]" *ngFor="let img of row.images;let j = index">
+    <img [src]="img" [alt]="img">
+  </div>
+</div>
+
+  <h3>GRADE : {{activeNode.grade}}</h3>
+</div>
